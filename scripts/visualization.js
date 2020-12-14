@@ -7,17 +7,17 @@ function drawMap(data) {
         .attr("width", width)
         .attr("height", height)
 
-    g = svg.append('g')
+    map = svg.append('g')
         .attr('class', 'map')
 
-    var projection = d3.geoMercator()
+    projection = d3.geoMercator()
         .scale(150)
-        .translate( [700, 470]);
+        .translate([700, 470]);
 
-    var path = d3.geoPath()
+    path = d3.geoPath()
         .projection(projection)
 
-    g.selectAll("path")
+    map.selectAll("path")
         .data(data.features)
         .enter()
         .append("path")
@@ -26,10 +26,36 @@ function drawMap(data) {
         .style('stroke-width', 0.4)
         .attr("d", path)
 
+
+}
+
+function drawCircles() {
+    circles = svg.append('g')
+        .attr('class', 'circles')
+
+    for (var id in countries) {
+        var country = countries[id]
+        circles.append("circle")
+            .attr("cx", function() {
+                return projection([country.lon])[0]
+            })
+            .attr("cy", function() {
+                return -1.065 * projection([country.lat])[0] + 1215
+            })
+            .attr("r", function() {
+                return 2 + country.cases/500000
+            })
+            .attr("fill", "red")
+            .attr("opacity", 0.4)
+    }
+}
+
+function setUpZoom() {
     const zoom = d3.zoom()
         .scaleExtent([1, 40])
         .on("zoom", (event) => {
-            g.attr("transform", event.transform)
+            map.attr("transform", event.transform)
+            circles.attr("transform", event.transform)
         })
 
     svg.call(zoom)
@@ -38,14 +64,10 @@ function drawMap(data) {
         zoom.transform,
         d3.zoomIdentity.translate(0,0)
     )
-
-}
-
-function drawCircles() {
-
 }
 
 function visualize() {
     $.getJSON("data/world_countries.json", drawMap)
     drawCircles()
+    setUpZoom()
 }
