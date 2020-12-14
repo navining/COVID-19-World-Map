@@ -1,3 +1,7 @@
+$.ajaxSetup({
+    async: false
+})
+
 var countries = {}
 
 function getCountries() {
@@ -31,6 +35,11 @@ function getData() {
 function main() {
     getCountries()
     getData()
+    if ($.isEmptyObject(countries)) {
+        alert("Failed to download data!")
+        return
+    }
+    visualize()
 }
 
 main()
