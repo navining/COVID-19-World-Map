@@ -1,0 +1,20 @@
+body {
+    width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.header {
+    margin: 0;
+}
+
+.content {
+    margin: 0;
+}
+
+#map {
+}
+
+.footer {
+    margin: 0
+}
