@@ -11,7 +11,7 @@ function drawMap(data) {
         .attr('class', 'map')
 
     projection = d3.geoMercator()
-        .scale(150)
+        .scale(250)
         .translate([700, 470]);
 
     path = d3.geoPath()
@@ -36,15 +36,19 @@ function drawCircles() {
     for (var id in countries) {
         var country = countries[id]
         if (country.cases == 0) continue;
+        var lat, lon
         circles.append("circle")
+            .attr("id", country.id)
             .attr("cx", function() {
-                return projection([country.lon])[0]
+                lon = projection([country.lon])[0]
+                return lon
             })
             .attr("cy", function() {
-                return -1.065 * projection([country.lat])[0] + 1215
+                lat = -1.065 * projection([country.lat])[0] + 1215
+                return lat
             })
             .attr("r", function() {
-                return 3 + country.cases / 500000
+                return 3 + country.cases / 400000
             })
             .attr("fill", "red")
             .attr("stroke", "black")
@@ -52,10 +56,21 @@ function drawCircles() {
             .attr("class", "circle")
             .on("mouseover", function() {
                 d3.select(this).attr("class", "circle hover")
+                var countryid = d3.select(this).attr("id")
+                d3.select("#" + countryid + "-text").attr("style", "display: inline;")
             })
             .on("mouseout", function() {
                 d3.select(this).attr("class", "circle")
+                var countryid = d3.select(this).attr("id")
+                d3.select("#" + countryid + "-text").attr("style", "display: none;")
             })
+
+        circles.append("text")
+            .attr("id", country.id + "-text")
+            .text(country.name + ": " + country.cases)
+            .attr("x", lon + 20)
+            .attr("y", lat - 20)
+            .attr("style", "display:none;")
     }
 }
 
@@ -86,7 +101,7 @@ function drawText() {
 
 function setUpZoom() {
     const zoom = d3.zoom()
-        .scaleExtent([1, 40])
+        .scaleExtent([0.8, 40])
         .on("zoom", (event) => {
             map.attr("transform", event.transform)
             circles.attr("transform", event.transform)
@@ -102,7 +117,7 @@ function setUpZoom() {
 
 function visualize() {
     $.getJSON("data/world_countries.json", drawMap)
+    drawText()
     drawCircles()
     setUpZoom()
-    drawText()
 }
