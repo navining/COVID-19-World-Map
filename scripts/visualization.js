@@ -35,6 +35,7 @@ function drawCircles() {
 
     for (var id in countries) {
         var country = countries[id]
+        if (country.cases == 0) continue;
         circles.append("circle")
             .attr("cx", function() {
                 return projection([country.lon])[0]
@@ -58,6 +59,31 @@ function drawCircles() {
     }
 }
 
+function drawText() {
+    text = svg.append("g")
+    text.append("text")
+        .attr("class", "text")
+        .text(function() {
+            return "Total Cases: " + total_case
+        })
+        .attr("x", 50)
+        .attr("y", 50)
+    text.append("text")
+        .attr("class", "text")
+        .text(function() {
+            return "Total Deaths: " + total_death
+        })
+        .attr("x", 50)
+        .attr("y", 80)
+    text.append("text")
+        .attr("class", "text")
+        .text(function() {
+            return "Total Recovered: " + total_recovered
+        })
+        .attr("x", 50)
+        .attr("y", 110)
+}
+
 function setUpZoom() {
     const zoom = d3.zoom()
         .scaleExtent([1, 40])
@@ -78,4 +104,5 @@ function visualize() {
     $.getJSON("data/world_countries.json", drawMap)
     drawCircles()
     setUpZoom()
+    drawText()
 }

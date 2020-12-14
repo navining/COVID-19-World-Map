@@ -1,4 +1,5 @@
 body {
+    width: 1400px;
     margin: 0 auto;
     text-align: center;
 }
@@ -17,6 +18,10 @@ body {
 
 .hover {
     fill: yellow;
+}
+
+.text {
+    font-size: 15px;
 }
 
 .footer {

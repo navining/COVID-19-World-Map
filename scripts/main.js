@@ -4,13 +4,19 @@ $.ajaxSetup({
 
 var countries = {}
 
+var total_case = 0
+
+var total_death = 0
+
+var total_recovered = 0
+
 function getCountries() {
     $.getJSON("data/countries.json", function(data, status) {
         if (status == "success") {
             var country_list = data["ref_country_codes"]
             for (var i = 0; i < country_list.length; i++) {
                 var element = country_list[i]
-                var country = new Country(element["alpha2"], element["country"], element["latitude"], element["longitude"], 0)
+                var country = new Country(element["alpha2"], element["country"], element["latitude"], element["longitude"], 0, 0, 0)
                 countries[element["alpha2"]] = country
             }
         }
@@ -27,7 +33,12 @@ function getData() {
             for (var i = 0; i < country_list.length; i++) {
                 var element = country_list[i]
                 countries[element["CountryCode"]]["cases"] = element["TotalConfirmed"]
+                countries[element["CountryCode"]]["death"] = element["TotalDeaths"]
+                countries[element["CountryCode"]]["recovered"] = element["TotalRecovered"]
             }
+            total_case = data["Global"]["TotalConfirmed"]
+            total_death = data["Global"]["TotalDeaths"]
+            total_recovered = data["Global"]["TotalRecovered"]
         }
     })
 }
