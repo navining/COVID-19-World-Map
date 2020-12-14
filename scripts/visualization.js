@@ -21,7 +21,7 @@ function drawMap(data) {
         .data(data.features)
         .enter()
         .append("path")
-        .style('fill', '#b3cccc')
+        .style('fill', '#E0E7F0')
         .style('stroke', 'black')
         .style('stroke-width', 0.4)
         .attr("d", path)
@@ -43,10 +43,18 @@ function drawCircles() {
                 return -1.065 * projection([country.lat])[0] + 1215
             })
             .attr("r", function() {
-                return 2 + country.cases/500000
+                return 3 + country.cases / 500000
             })
             .attr("fill", "red")
-            .attr("opacity", 0.4)
+            .attr("stroke", "black")
+            .attr("opacity", 0.5)
+            .attr("class", "circle")
+            .on("mouseover", function() {
+                d3.select(this).attr("class", "circle hover")
+            })
+            .on("mouseout", function() {
+                d3.select(this).attr("class", "circle")
+            })
     }
 }
 

@@ -11,7 +11,12 @@ body {
     margin: 0;
 }
 
-#map {
+.circle {
+    fill: red;
+}
+
+.hover {
+    fill: yellow;
 }
 
 .footer {
