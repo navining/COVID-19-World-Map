@@ -1,9 +1,9 @@
-function drawMap(data) {
+function drawMap2(data) {
   var width = 1400;
   var height = 680;
 
   svg = d3
-    .select(".confirmed-map")
+    .select(".recovered-map")
     .append("svg")
     .attr("width", width)
     .attr("height", height);
@@ -25,12 +25,12 @@ function drawMap(data) {
     .attr("d", path);
 }
 
-function drawCircles() {
+function drawCircles2() {
   circles = svg.append("g").attr("class", "circles");
 
   for (var id in countries) {
     var country = countries[id];
-    if (country.cases == 0) continue;
+    if (country.recovered == 0) continue;
     var lat, lon;
     circles
       .append("circle")
@@ -44,7 +44,7 @@ function drawCircles() {
         return lat;
       })
       .attr("r", function () {
-        return 3 + country.cases / 400000;
+        return 3 + country.recovered / 400000;
       })
       .attr("fill", "red")
       .attr("stroke", "black")
@@ -64,14 +64,14 @@ function drawCircles() {
     circles
       .append("text")
       .attr("id", country.id + "-text")
-      .text(country.name + ": " + country.cases)
+      .text(country.name + ": " + country.recovered)
       .attr("x", lon + 20)
       .attr("y", lat - 20)
       .attr("style", "display:none;");
   }
 }
 
-function drawText() {
+function drawText2() {
   text = svg.append("g");
   text
     .append("text")
@@ -99,7 +99,7 @@ function drawText() {
     .attr("y", 110);
 }
 
-function setUpZoom() {
+function setUpZoom2() {
   const zoom = d3
     .zoom()
     .scaleExtent([0.8, 40])
@@ -113,9 +113,9 @@ function setUpZoom() {
   svg.call(zoom.transform, d3.zoomIdentity.translate(0, 0));
 }
 
-function visualize() {
-  $.getJSON("data/world_countries.json", drawMap);
-  drawText();
-  drawCircles();
-  setUpZoom();
+function visualize2() {
+  $.getJSON("data/world_countries.json", drawMap2);
+  drawText2();
+  drawCircles2();
+  setUpZoom2();
 }
