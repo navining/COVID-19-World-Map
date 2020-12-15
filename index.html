@@ -2,91 +2,24 @@
 <html lang="en">
 <meta charset="utf-8">
 <title>World COVID-19 Map</title>
-
 <head>
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="css/main.css">
     <script src="scripts/Country.js"></script>
     <script src="scripts/visualization.js"></script>
-    <script src="scripts/visualization2.js"></script>
-    <script src="scripts/visualization3.js"></script>
 </head>
-
 <body>
-    <div class="container">
-        <header class="header-main">
-            <!-- <h1> World COVID-19 Map</h1>
-            <h3>Author: Navi Ning, Sukmin Hwang</h3> -->
-            <div class="header-home"> <a class="home-a" href="#home">Home</a></div>
-            <div class="header-intro"> <a class="intro-a" href="#intro"> Intro. </a></div>
-            <div class="header-confirmed"> <a class="confirmed-a" href="#confirmed">Confirmed Cases</a> </div>
-            <div class="header-recovered"> <a class="recovered-a" href="#recovered">Recovered Cases</a></div>
-            <div class="header-dead"> <a class="dead-a" href="#dead">Dead Cases</a></div>
-        </header>
-
-        <main>
-            <section class="intro">
-                <div class="wrap">
-                    <div class="arrow arrow-left">
-                    </div>
-                    <div class="slider">
-                        <div class="slide slide1">
-                            <div class="slide-content">
-                                <p>UIUC CS519 Scientific Visualization: Final Project</p>
-                                <h1>[ <b>World COVID-19 Map</b> ]</h1>
-                                <p>Navi Ning (xning5), Suk Min Hwang (shwang53)</p>
-                            </div>
-                        </div>
-                        <div class="slide slide2">
-                            <div class="slide-content">
-                                <h1>About this project..</h1>
-                                <p>1. A interactive data visualization on how severe COVID-19 is in
-                                    each country with d3.js.</p>
-                                <p>2. The graph is supposed to be a world map, in which each country has a color. </p>
-                                <p>3. The more severe the epidemic is, the redder the color is. </p>
-                                <p>4. Interactive dashboard where users can filter the shown data on the
-                                    map </p>
-                                <h3></h3>
-                            </div>
-                        </div>
-                        <div class="slide slide3">
-                            <div class="slide-content">
-                                <h1>Scroll Down to see Maps</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="arrow arrow-right">
-                    </div>
-                </div>
-            </section>
-
-            <section class="confirmed">
-                <h1 class="temp">World COVID-19 Map By <b>Confirmed Cases</b></h1>
-                <div class="confirmed-map"></div>
-            </section>
-
-            <section class="recovered">
-                <h1 class="temp">World COVID-19 Map By <b>Recovered Cases</b></h1>
-                <div class="recovered-map"></div>
-            </section>
-
-            <section class="dead">
-                <h1 class="temp">World COVID-19 Map By <b>Dead Cases</b></h1>
-                <div class="dead-map"></div>
-            </section>
-        </main>
-
-        <div class="footer">
-            <h3><a href="https://github.com/navining/CS-519-Project" target="_blank">UIUC CS 519 Project</a></h3>
-        </div>
-
-        <script src="scripts/main.js"></script>
-        <script src="scripts/main2.js"></script>
-        <script src="scripts/main3.js"></script>
-
-
+    <div class="header">
+    <h1> World COVID-19 Map</h1>
+        <h3>Author: Navi Ning, Sukmin Hwang</h3>
     </div>
-</body>
+    <div class="content">
+    </div>
+    <div class="footer">
+        <h3><a href="https://github.com/navining/CS-519-Project" target="_blank">UIUC CS 519 Project</a></h3>
+    </div>
+    <script src="scripts/main.js"></script>
 
+</body>
 </html>

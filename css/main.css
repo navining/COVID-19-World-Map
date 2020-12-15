@@ -1,201 +1,29 @@
+body {
+    width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.header {
+    margin: 0;
+}
+
+.content {
+    margin: 0;
+}
+
 .circle {
-  fill: rosybrown;
+    fill: red;
 }
 
 .hover {
-  fill: red;
+    fill: yellow;
 }
 
-h1 {
-  color: black;
-  font-size: 2.5rem;
+.text {
+    font-size: 15px;
 }
 
-h1 b {
-  color: gray;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  margin-left: 100px;
-  margin-right: 100px;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  height: 100vh;
-}
-
-.header-main {
-  padding-top: 10px;
-  height: 10vh;
-  width: 100%;
-  background: rgb(54, 54, 54);
-  position: fixed;
-  z-index: 1;
-  font-size: 3rem;
-
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
-  flex: auto;
-  align-items: center;
-  transition: top 0.3s;
-}
-
-.header-main a {
-  color: white;
-  text-decoration: none;
-  display: block;
-  transition: all 0.3 ease-in-out;
-}
-
-.header-main a:hover {
-  color: orangered;
-}
-
-.header-main .home-a {
-  color: black;
-}
-
-.intro {
-  padding: 20px;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.intro,
-.slider,
-.wrap,
-.slide-content {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  width: 100%;
-  height: 100vh;
-  overflow-x: hidden;
-}
-.wrap {
-  position: relative;
-}
-
-.slide {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: white;
-}
-
-.slide-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.slide-content h1 {
-  font-size: 3rem;
-  color: Black;
-  font-family: cursive;
-}
-
-.slide-content h1 b {
-  color: orangered;
-}
-
-.slide-content p {
-  font-size: 2rem;
-  color: Black;
-  font-family: cursive;
-}
-
-.slide-content p b {
-  color: orangered;
-}
-
-.slide-content h3 {
-  font-size: 3rem;
-  color: Black;
-  font-family: cursive;
-}
-
-.slide-content h4 {
-  font-size: 1.5rem;
-  color: Black;
-  font-family: "Times New Roman";
-}
-
-.slide-content span {
-  font-size: 5rem;
-  color: #ff4500;
-  font-family: cursive;
-}
-
-.arrow {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  margin-top: -35px;
-  width: 0;
-  height: 0;
-  border-style: solid;
-}
-
-.arrow-left {
-  border-width: 30px 40px 30px 0;
-  border-color: transparent rgba(0, 0, 0, 0.7) transparent transparent;
-  left: 0;
-  margin-left: 30px;
-}
-
-.arrow-right {
-  border-width: 30px 0px 30px 40px;
-  border-color: transparent transparent transparent rgba(0, 0, 0, 0.7);
-  right: 0;
-  margin-right: 30px;
-}
-
-.confirmed {
-  padding: 0;
-  font-family: cursive;
-  border: solid black;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column;
-}
-
-.recovered {
-  padding: 0;
-  font-family: cursive;
-  border: solid black;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column;
-}
-
-.dead {
-  padding: 0;
-  font-family: cursive;
-  border: solid black;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column;
+.footer {
+    margin: 0
 }
