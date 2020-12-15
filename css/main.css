@@ -10,14 +10,15 @@ body {
 
 .content {
     margin: 0;
+    font-family: cursive;
 }
 
 .circle {
-    fill: red;
+    fill: rosybrown;
 }
 
 .hover {
-    fill: yellow;
+    fill: red;
 }
 
 .text {
